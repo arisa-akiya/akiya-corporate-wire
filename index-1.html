@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>空き家地方創生株式会社｜コーポレートサイト（ワイヤーフレーム）</title>
+  <meta name="description" content="空き家再生を起点に、地域の価値を再構築する。空き家地方創生株式会社のコーポレートサイト ワイヤーフレーム。" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111;
+      --muted:#666;
+      --line:#e6e6e6;
+      --card:#fafafa;
+      --brand:#111;
+      --radius:16px;
+      --shadow:0 6px 20px rgba(0,0,0,.06);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin-inline:auto;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(1.2) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
+    }
+    .mark{
+      width:34px;
+      height:34px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:linear-gradient(180deg,#fff,#f3f3f3);
+      flex:0 0 auto;
+    }
+    .brand-title{
+      font-size:14px;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:10px;
+      flex: 1;
+    }
+    .nav-list{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      padding:0;
+      margin:0;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:nowrap;
+    }
+    .nav-list a{
+      font-size:13px;
+      color:#222;
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .nav-list a:hover{
+      background:#f3f3f3;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .btn:hover{background:#f4f4f4}
+    .btn.primary{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+    .btn.primary:hover{background:#222}
+
+    /* Mobile nav toggle */
+    .nav-toggle{
+      display:none;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .nav-toggle:active{transform:translateY(1px)}
+    .nav-drawer{
+      display:none;
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+    .nav-drawer .drawer-inner{
+      padding:12px 0 16px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .drawer-link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      font-size:14px;
+    }
+    .drawer-link:hover{background:#f6f6f6}
+
+    header.is-open .nav-drawer{display:block}
+
+    @media (max-width: 920px){
+      .nav-list{display:none}
+      .nav-toggle{display:inline-flex}
+      .head{padding:10px 0}
+      .brand{min-width: unset}
+    }
+
+    /* Sections */
+    .section{
+      padding:56px 0;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:.22em;
+      color:var(--muted);
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    h1{
+      font-size: clamp(28px, 5vw, 44px);
+      line-height:1.15;
+      margin:0 0 14px;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      font-size:16px;
+      color:#333;
+      margin:0;
+      max-width: 62ch;
+    }
+
+    .hero{
+      padding:44px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:start;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .photo{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f5f5f5;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      min-height: 280px;
+      position:relative;
+    }
+    .photo::after{
+      content:"ここにヒーロー写真（工事中の空き家／現場の引き）";
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#777;
+      padding:18px;
+      text-align:center;
+      font-size:14px;
+    }
+    .note{
+      margin-top:10px;
+      font-size:12px;
+      color:#666;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .photo{min-height:220px}
+    }
+
+    /* Cards / grids */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .card p{
+      margin:0;
+      color:#333;
+      font-size:14px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:12px;
+      color:#444;
+      margin-bottom:10px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:#111;display:inline-block;
+    }
+
+    @media (max-width: 920px){
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+      margin-top:16px;
+    }
+    @media (max-width: 920px){
+      .split{grid-template-columns:1fr}
+    }
+
+    /* Lists */
+    .list{
+      margin:0;
+      padding-left: 1.1em;
+      color:#333;
+      font-size:14px;
+    }
+    .list li{margin:6px 0}
+
+    /* News */
+    .news{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      margin-top:16px;
+    }
+    @media (max-width: 920px){
+      .news{grid-template-columns:1fr}
+    }
+    .news-item{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .news-meta{
+      font-size:12px;
+      color:#666;
+      white-space:nowrap;
+      margin-top:2px;
+    }
+    .news-title{
+      margin:0;
+      font-size:14px;
+      color:#111;
+    }
+    .pill{
+      display:inline-flex;
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:#444;
+      white-space:nowrap;
+    }
+
+    /* Footer + small journal banner */
+    footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 34px;
+      color:#444;
+      font-size:13px;
+      background:#fff;
+    }
+    .foot-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      .foot-grid{grid-template-columns:1fr}
+    }
+
+    .mini-banner{
+      margin-top:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+      background:#fafafa;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .mini-banner .txt{
+      font-size:13px;
+      color:#333;
+    }
+    .mini-banner .sub{
+      font-size:12px;
+      color:#666;
+      margin-top:2px;
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+    .mt8{margin-top:8px}
+    .mt14{margin-top:14px}
+    .mt18{margin-top:18px}
+    .mt24{margin-top:24px}
+    .anchor{scroll-margin-top:90px}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="head">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="brand-title">空き家地方創生株式会社</div>
+      </div>
+
+      <nav aria-label="グローバルナビゲーション">
+        <ul class="nav-list">
+          <li><a href="#about">会社について</a></li>
+          <li><a href="#business">事業</a></li>
+          <li><a href="#projects">実績</a></li>
+          <li><a href="#newsir">ニュース</a></li>
+          <li><a href="#ir">IR</a></li>
+          <li><a href="#recruit">採用</a></li>
+          <li><a href="#company">会社情報</a></li>
+        </ul>
+
+        <a class="btn primary" href="#contact">お問い合わせ</a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer">
+          メニュー
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="nav-drawer" id="drawer">
+    <div class="container">
+      <div class="drawer-inner" aria-label="モバイルナビゲーション">
+        <a class="drawer-link" href="#about">会社について <span class="muted">›</span></a>
+        <a class="drawer-link" href="#business">事業 <span class="muted">›</span></a>
+        <a class="drawer-link" href="#projects">実績 <span class="muted">›</span></a>
+        <a class="drawer-link" href="#newsir">ニュース <span class="muted">›</span></a>
+        <a class="drawer-link" href="#ir">IR <span class="muted">›</span></a>
+        <a class="drawer-link" href="#recruit">採用 <span class="muted">›</span></a>
+        <a class="drawer-link" href="#company">会社情報 <span class="muted">›</span></a>
+        <a class="drawer-link" href="#contact">お問い合わせ <span class="muted">›</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">Corporate</p>
+
+          <h1>
+            空き家再生を起点に、<br />
+            地域の価値を再構築する。
+          </h1>
+
+          <p class="lead">
+            空き家地方創生株式会社は、<br class="br" />
+            不動産・宿泊・ブランド事業を通じて、<br class="br" />
+            地域に持続的な経済循環を生み出します。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#business">事業を見る</a>
+            <a class="btn" href="#newsir">ニュース / IR</a>
+            <a class="btn" href="#about">会社について</a>
+          </div>
+
+          <p class="note">
+            ワイヤーフレーム用：写真は「工事中の空き家／現場の引き」を想定。動きはフェードインのみ（必要最小限）。
+          </p>
+        </div>
+
+        <div>
+          <div class="photo" aria-label="ヒーロー写真（プレースホルダー）"></div>
+          <p class="note mt8">
+            例：大工さんの手元、解体後の梁、施工中の室内、現場で打合せしているチーム、など。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="business">
+    <div class="container">
+      <p class="kicker">Business</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">事業紹介</h2>
+      <p class="lead" style="max-width:70ch;">
+        空き家を「経済が回る資産」として再定義し、宿泊・体験・投資が循環するモデルを実装します。
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="tag"><span class="dot"></span>① 空き家宿泊化事業（宿化）</div>
+          <h3>空き家を宿泊施設として再生・運営</h3>
+          <p>地域の文化を編集し、価値ある滞在体験へ。企画・改修・運営・集客まで一気通貫。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag"><span class="dot"></span>② 空き家活用支援事業（支援）</div>
+          <h3>オーナー制度 / 運営支援</h3>
+          <p>AKIYATOブランドとして代理運営や運営支援。事業として成立する設計を提供。</p>
+          <ul class="list mt8">
+            <li>オーナー制度</li>
+            <li>宿運営支援制度（代理運営）</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="tag"><span class="dot"></span>③ 空き家流通事業</div>
+          <h3>賃貸・売買・転売で収益化</h3>
+          <p>空き家を賃貸物件化し利回り運用、または売買仲介・転売にて収益を獲得。</p>
+        </div>
+      </div>
+
+      <div class="card mt18">
+        <h3 style="margin:0 0 8px;">主要事業を3〜4分類で整理（構成メモ）</h3>
+        <ul class="list">
+          <li>空き家再生・不動産事業</li>
+          <li>宿泊・運営事業</li>
+          <li>ブランド・事業開発</li>
+          <li>共業・投資スキーム</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="projects" style="padding-top:0;">
+    <div class="container">
+      <p class="kicker">Track record</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">実績・プロジェクト</h2>
+      <p class="muted" style="margin:0;">ワイヤー段階ではカードで並べ、後日、写真・数値・地域別フィルターを追加。</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>プロジェクトA（地域名）</h3>
+          <p class="muted">空き家→宿泊施設化</p>
+          <ul class="list mt8">
+            <li>改修期間：xxヶ月</li>
+            <li>年間稼働：xx泊（目標）</li>
+            <li>地域連携：事業者x社</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>プロジェクトB（地域名）</h3>
+          <p class="muted">運営支援 / 代理運営</p>
+          <ul class="list mt8">
+            <li>OTA運用</li>
+            <li>清掃・運用体制</li>
+            <li>レビュー・CRM</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>プロジェクトC（地域名）</h3>
+          <p class="muted">流通（賃貸・売買）</p>
+          <ul class="list mt8">
+            <li>物件仕入れ</li>
+            <li>利回り設計</li>
+            <li>売買仲介</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="about">
+    <div class="container">
+      <p class="kicker">About</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">会社について</h2>
+
+      <div class="split">
+        <div class="card">
+          <h3>ミッション / 提供価値（要約）</h3>
+          <p>
+            空き家を、負債から「地域の資産」へ。<br />
+            宿泊・体験・投資が循環する、新しい地方モデルを実装し、自走する地方経済をつくる。
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>信頼性の要素（構成メモ）</h3>
+          <ul class="list">
+            <li>どんな人がやっているか（役員 / チーム）</li>
+            <li>実績（プロジェクト / 数値 / 連携先）</li>
+            <li>取り組み（自治体・地域事業者との関係）</li>
+            <li>MVV（目指す姿・中計・方針）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mt18">
+        <h3 style="margin:0 0 8px;">代表メッセージ（草案）</h3>
+        <p style="margin:0; white-space:pre-line;">
+「空き家を、負債から“地域の資産”へ。」
+
+日本全国に増え続ける空き家。
+それは単なる老朽化した建物ではなく、人が住み、働き、暮らしてきた“地域の記憶”そのものです。
+
+しかし現実には、管理されず、活用されず、「誰のものでもない負債」として放置されている空き家が、地方の景観・治安・経済を静かに蝕んでいます。
+
+私たち空き家地方創生株式会社は、この空き家を “社会課題”としてではなく、“経済が回る資産”として再定義するために生まれました。
+
+宿泊・体験・投資が循環する、新しい地方モデル。
+一過性の補助金頼みではなく、自走する地方経済をつくること。
+それが私たちのゴールです。
+
+空き家地方創生株式会社
+代表取締役　竹尾 昌大
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="newsir">
+    <div class="container">
+      <p class="kicker">News</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">ニュース</h2>
+      <p class="muted" style="margin:0;">
+        カテゴリー分けはニュース / プレス を想定。参考：kubellのニュース構成。
+      </p>
+
+      <div class="news">
+        <div class="card" style="background:#fff;">
+          <div style="display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="pill">ニュース</span>
+              <span class="pill">プレス</span>
+            </div>
+            <a class="btn" href="https://www.kubell.com/news/" target="_blank" rel="noopener">参考を見る</a>
+          </div>
+
+          <div class="news-item">
+            <div>
+              <p class="news-title">（ニュース）プロジェクト開始のお知らせ</p>
+              <div class="news-meta">2026.01.12</div>
+            </div>
+            <span class="pill">News</span>
+          </div>
+
+          <div class="news-item mt8">
+            <div>
+              <p class="news-title">（プレス）提携に関するお知らせ</p>
+              <div class="news-meta">2025.12.20</div>
+            </div>
+            <span class="pill">Press</span>
+          </div>
+
+          <div class="news-item mt8">
+            <div>
+              <p class="news-title">（ニュース）サイトリニューアルのお知らせ</p>
+              <div class="news-meta">2025.12.01</div>
+            </div>
+            <span class="pill">News</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px;">ニュース設計メモ</h3>
+          <ul class="list">
+            <li>トップには最新3件を表示</li>
+            <li>一覧でカテゴリフィルタ（ニュース/プレス）</li>
+            <li>更新頻度が信頼感につながる</li>
+          </ul>
+
+          <div class="mini-banner mt14">
+            <div>
+              <div class="txt">ジャーナル（現行）</div>
+              <div class="sub">フッター上の小バナーから誘導（目立たせすぎない）</div>
+            </div>
+            <a class="btn" href="https://re-akiya.co.jp/journal/" target="_blank" rel="noopener">記事を見る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="ir">
+    <div class="container">
+      <p class="kicker">IR</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">IR</h2>
+
+      <div class="split">
+        <div class="card">
+          <h3>IRで置く要素（例）</h3>
+          <ul class="list">
+            <li>適時開示 / お知らせ</li>
+            <li>経営方針 / 中期計画（準備中でも枠を作る）</li>
+            <li>サステナビリティ（必要なら後日追加）</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>サステナビリティについて</h3>
+          <p class="muted" style="margin:0;">
+            いきなり大きく作り込まず、まずは「方針」「取り組み」「指標（後日）」の3点で最小構成から始めるのが自然。
+          </p>
+          <div class="mt14">
+            <a class="btn" href="#contact">共業・投資のご相談</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="recruit">
+    <div class="container">
+      <p class="kicker">Recruit</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">採用</h2>
+
+      <div class="split">
+        <div class="card">
+          <h3>求める人物像（例）</h3>
+          <ul class="list">
+            <li>現場と経営の両方に関心がある</li>
+            <li>地域と長く付き合う覚悟がある</li>
+            <li>仕組み化や運用改善が好き</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>募集職種（例）</h3>
+          <ul class="list">
+            <li>運営・CS / 清掃体制マネジメント</li>
+            <li>不動産・開発（仕入れ〜企画）</li>
+            <li>ブランド・マーケ（コンテンツ/CRM）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="company">
+    <div class="container">
+      <p class="kicker">Company</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">会社情報</h2>
+
+      <div class="card">
+        <ul class="list">
+          <li>会社名：空き家地方創生株式会社</li>
+          <li>所在地：（記載）</li>
+          <li>設立：（記載）</li>
+          <li>役員：（記載）</li>
+          <li>事業：空き家再生・宿泊運営・支援・流通</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="contact">
+    <div class="container">
+      <p class="kicker">Contact</p>
+      <h2 style="margin:0 0 8px; font-size:24px; letter-spacing:-.01em;">お問い合わせ</h2>
+
+      <div class="split">
+        <div class="card">
+          <h3>窓口</h3>
+          <ul class="list">
+            <li>共業・提携</li>
+            <li>取材</li>
+            <li>採用</li>
+            <li>投資・スキーム相談</li>
+          </ul>
+          <p class="note mt8">空き家相談はコーポレートではなく、別サイトへ誘導する想定。</p>
+        </div>
+
+        <div class="card" style="background:#fff;">
+          <h3>フォーム（ワイヤー）</h3>
+          <p class="muted" style="margin:0 0 10px;">ここにフォームを配置（後日実装）</p>
+          <div class="news-item" style="background:#fafafa;">
+            <div>
+              <p class="news-title">フォーム項目例</p>
+              <div class="news-meta">氏名 / メール / 用件 / 内容</div>
+            </div>
+            <span class="pill">Form</span>
+          </div>
+          <div class="mt14">
+            <a class="btn primary" href="mailto:info@example.com">メールで問い合わせ</a>
+          </div>
+          <p class="note mt8">メールアドレスは後で実アドレスに差し替え。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <div style="font-size:14px;">空き家地方創生株式会社</div>
+            <div class="muted" style="font-size:12px;">Corporate website wireframe</div>
+          </div>
+        </div>
+
+        <div class="mini-banner">
+          <div>
+            <div class="txt">ジャーナル（現行）</div>
+            <div class="sub">フッター上の小バナーから遷移</div>
+          </div>
+          <a class="btn" href="https://re-akiya.co.jp/journal/" target="_blank" rel="noopener">見る</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="muted" style="font-size:12px;">フッターリンク</div>
+        <div class="mt8" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="#about">会社について</a>
+          <a class="btn" href="#business">事業</a>
+          <a class="btn" href="#newsir">ニュース</a>
+          <a class="btn" href="#ir">IR</a>
+          <a class="btn" href="#recruit">採用</a>
+          <a class="btn" href="#company">会社情報</a>
+        </div>
+        <div class="muted mt14">© Akiya Regional Revitalization Co., Ltd.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const header = document.querySelector("header");
+    const btn = document.querySelector(".nav-toggle");
+    const drawer = document.getElementById("drawer");
+
+    if(!header || !btn || !drawer) return;
+
+    btn.addEventListener("click", function(){
+      const open = header.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    // スマホでリンクタップしたら閉じる
+    drawer.addEventListener("click", function(e){
+      const a = e.target.closest("a");
+      if(!a) return;
+      header.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+
+    // 画面幅がPCに戻ったら閉じる
+    window.addEventListener("resize", function(){
+      if(window.matchMedia("(min-width: 921px)").matches){
+        header.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
